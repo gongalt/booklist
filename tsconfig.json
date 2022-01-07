@@ -15,15 +15,31 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "importHelpers": true,
     "target": "es2017",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "module": "es2020",
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@shared-lib/*": [
+        "src/app/shared/*"
+      ],
+      "@core/*": [
+        "src/app/core/*",
+        "src/app/core/*/index",
+      ]
+    }
   },
   "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

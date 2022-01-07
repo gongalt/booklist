@@ -21,7 +21,8 @@
     "importHelpers": true,
     "target": "es2017",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "node_modules/@angular"
     ],
     "module": "es2020",
     "lib": [

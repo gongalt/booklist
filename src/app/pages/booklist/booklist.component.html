@@ -1,0 +1,43 @@
+<span class="p-input-icon-left">
+  <i class="pi pi-search"></i>
+  <input
+    type="text"
+    pInputText
+    placeholder="Search"
+    [(ngModel)]="search"
+    (ngModelChange)="onSearch()"
+  />
+</span>
+
+<p-table
+  [value]="books"
+  responsiveLayout="scroll"
+  (sortFunction)="onSort($event)"
+  [customSort]="true"
+  [sortMode]="'multiple'"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th [pSortableColumn]="'book.volumeInfo.authors'">Authors</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-book>
+    <tr>
+      <td>{{ book.volumeInfo.title }}</td>
+      <td>{{ book.volumeInfo.description }}</td>
+      <td>
+        <ng-container *ngFor="let category of book.volumeInfo.categories">
+          <p>{{ category }}</p>
+        </ng-container>
+      </td>
+      <td>
+        <ng-container *ngFor="let author of book.volumeInfo.authors">
+          <p>{{ author }}</p>
+        </ng-container>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
